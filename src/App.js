@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { MenuApp, Table } from "./components";
 
 function App() {
+  const [admin, setAdmin] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter basename="/akbarstenders/">
+      <Switch>
+        <Route path="/" component={MenuApp} exact />
+        <Route path="/admin-panel" component={Table} exact />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
